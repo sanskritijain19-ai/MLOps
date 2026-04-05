@@ -11,7 +11,9 @@ from huggingface_hub import login, HfApi
 
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
+print("Uploading to:", "SanskritiJain/Bank-Customer-Churn")
 DATASET_PATH = "hf://datasets/SanskritiJain/Bank-Customer-Churn/bank_customer_churn.csv"
+print("Uploaded to:", "SanskritiJain/Bank-Customer-Churn")
 bank_dataset = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
