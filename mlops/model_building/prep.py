@@ -8,9 +8,10 @@ from sklearn.model_selection import train_test_split
 # for hugging face space authentication to upload files
 from huggingface_hub import login, HfApi
 
+
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
-DATASET_PATH = "hf://datasets/SanskritiJain/bank-customer-churn/bank_customer_churn.csv"
+DATASET_PATH = "hf://datasets/SanskritiJain/Bank-Customer-Churn/bank_customer_churn.csv"
 bank_dataset = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
@@ -61,6 +62,6 @@ for file_path in files:
     api.upload_file(
         path_or_fileobj=file_path,
         path_in_repo=file_path.split("/")[-1],  # just the filename
-        repo_id="SanskritiJain/bank-customer-churn",
+        repo_id="SanskritiJain/Bank-Customer-Churn",
         repo_type="dataset",
     )
